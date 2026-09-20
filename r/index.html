@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Időpontfoglalás — NextZ Marketing</title>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --black: #08080D;
+    --surface: #11111A;
+    --blue: #2D6AFF;
+    --white: #F0F0F5;
+    --grey: #7A7A8E;
+  }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  header {
+    width: 100%;
+    max-width: 800px;
+    padding: 24px 16px 0;
+    text-align: center;
+  }
+  header a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  header a:hover { color: var(--blue); }
+  main {
+    width: 100%;
+    max-width: 800px;
+    flex: 1;
+    padding: 24px 16px;
+  }
+  #nextz-booking {
+    min-height: 500px;
+  }
+  .no-token {
+    text-align: center;
+    padding: 80px 16px;
+    color: var(--grey);
+    font-size: 16px;
+  }
+  footer {
+    width: 100%;
+    max-width: 800px;
+    padding: 24px 16px;
+    text-align: center;
+    color: var(--grey);
+    font-size: 13px;
+  }
+  footer a { color: var(--blue); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+  <header>
+    <a href="/">NEXTZ</a>
+  </header>
+  <main>
+    <div id="nextz-booking"></div>
+  </main>
+  <footer>
+    &copy; 2026 <a href="/">NextZ Marketing</a>
+  </footer>
+  <script>
+    // If no token in URL, show message
+    if (!/\/r\/[^/?#]+/.test(window.location.pathname)) {
+      document.getElementById('nextz-booking').innerHTML =
+        '<div class="no-token">Érvénytelen foglalási link.</div>';
+    }
+  </script>
+  <script src="https://booking.zentia.sk/embed.js" async></script>
+</body>
+</html>
